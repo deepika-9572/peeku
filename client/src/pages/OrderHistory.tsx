@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "wouter";
-import { useAuth } from "@/context/AuthContext";
+import { Link } from "wouter";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -8,37 +7,26 @@ import { getOrdersByUserId, OrderType } from "@/data/mockData";
 import { formatCurrency, formatDate } from "@/lib/utils";
 
 const OrderHistory = () => {
-  const { isAuthenticated, user } = useAuth();
-  const [, setLocation] = useLocation();
   const [orders, setOrders] = useState<OrderType[]>([]);
   const [filteredOrders, setFilteredOrders] = useState<OrderType[]>([]);
   const [activeTab, setActiveTab] = useState("all");
   const [loading, setLoading] = useState(true);
 
-  // Redirect if not authenticated
-  useEffect(() => {
-    if (!isAuthenticated) {
-      setLocation("/");
-    }
-  }, [isAuthenticated, setLocation]);
-
   // Load orders
   useEffect(() => {
-    if (user) {
-      // Get all orders
-      const userOrders = getOrdersByUserId(user.id).sort((a, b) => 
-        new Date(b.date).getTime() - new Date(a.date).getTime()
-      );
-      
-      setOrders(userOrders);
-      setFilteredOrders(userOrders);
-      
-      // Simulate loading
-      setTimeout(() => {
-        setLoading(false);
-      }, 500);
-    }
-  }, [user]);
+    // Get all orders - using userId 1 as default
+    const userOrders = getOrdersByUserId(1).sort((a, b) => 
+      new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+    
+    setOrders(userOrders);
+    setFilteredOrders(userOrders);
+    
+    // Simulate loading
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
 
   // Filter orders when tab changes
   useEffect(() => {
@@ -64,9 +52,7 @@ const OrderHistory = () => {
     }
   };
 
-  if (!isAuthenticated || !user) {
-    return null;
-  }
+
 
   if (loading) {
     return (
@@ -108,11 +94,9 @@ const OrderHistory = () => {
                       ? "You haven't placed any orders yet." 
                       : `You don't have any ${activeTab.replace('_', ' ')} orders.`}
                   </p>
-                  {activeTab === "all" && (
-                    <Link href="/menu">
-                      <Button>Browse Menu</Button>
-                    </Link>
-                  )}
+                  <Link href="/order-history">
+                    <Button>View Your Orders</Button>
+                  </Link>
                 </div>
               ) : (
                 <div className="space-y-6">

@@ -28,17 +28,19 @@ import OrderProcessingModal from "./components/OrderProcessingModal";
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
+      <Route path="/order-tracking/:id">
+        {params => <OrderTracking key={params.id} />}
+      </Route>
       <Route path="/menu" component={Menu} />
       <Route path="/product/:id" component={ProductDetail} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       <Route path="/profile" component={Profile} />
-      <Route path="/order-tracking/:id" component={OrderTracking} />
       <Route path="/order-history" component={OrderHistory} />
       <Route path="/checkout" component={Checkout} />
       <Route path="/admin" component={Admin} />
       <Route path="/admin/orders" component={AdminOrders} />
+      <Route path="/" component={Home} />
       <Route component={NotFound} />
     </Switch>
   );

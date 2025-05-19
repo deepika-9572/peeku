@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { useCart } from "@/context/CartContext";
+import { getAllOrders } from "@/data/mockData";
 import { FaCheck } from "react-icons/fa";
 
 const OrderProcessingModal = () => {
@@ -12,11 +13,11 @@ const OrderProcessingModal = () => {
   const { clearCart } = useCart();
 
   useEffect(() => {
-    // Generate a random order ID
-    const generateOrderId = () => {
-      const prefix = "DB";
-      const numbers = Math.floor(10000 + Math.random() * 90000);
-      return `${prefix}${numbers}`;
+    // Get a valid order ID from the existing orders
+    const getValidOrderId = () => {
+      const orders = getAllOrders();
+      // If there are orders, return one of their IDs, otherwise use a default
+      return orders.length > 0 ? orders[Math.floor(Math.random() * orders.length)].id : "DB12345";
     };
 
     // Generate an estimated delivery time (30-60 minutes from now)
@@ -43,7 +44,7 @@ const OrderProcessingModal = () => {
 
     // Make the component available globally
     window.showOrderProcessingModal = () => {
-      setOrderId(generateOrderId());
+      setOrderId(getValidOrderId());
       setEstimatedDelivery(generateDeliveryTime());
       setIsProcessing(true);
       setIsVisible(true);
@@ -65,14 +66,20 @@ const OrderProcessingModal = () => {
   };
 
   const handleTrackOrder = () => {
-    closeModal();
-    navigate(`/order-tracking/${orderId}`);
+    setIsVisible(false);
+    // Use setTimeout to ensure the modal is closed before navigation
+    setTimeout(() => {
+      navigate(`/order-tracking/${orderId}`);
+    }, 100);
   };
 
   const handleContinueShopping = () => {
-    closeModal();
+    setIsVisible(false);
     clearCart();
-    navigate("/");
+    // Use setTimeout to ensure the modal is closed before navigation
+    setTimeout(() => {
+      navigate("/");
+    }, 100);
   };
 
   return (

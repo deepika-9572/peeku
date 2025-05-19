@@ -202,7 +202,7 @@ const About = () => {
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
               <div className="w-36 h-36 rounded-full overflow-hidden mx-auto mb-6 border-4 border-primary border-opacity-20 group-hover:border-opacity-60 transition-all duration-300 shadow-md">
                 <img 
-                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150" 
+                  src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150" 
                   alt="Darshan" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />

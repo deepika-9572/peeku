@@ -7,15 +7,21 @@ import { formatCurrency, formatDate } from "@/lib/utils";
 import { useAuth } from "@/context/AuthContext";
 
 const OrderTracking = () => {
-  const [, params] = useRoute("/order-tracking/:id");
+  const [matched, params] = useRoute("/order-tracking/:id");
   const { isAuthenticated } = useAuth();
   const [order, setOrder] = useState<OrderType | null>(null);
   const [loading, setLoading] = useState(true);
   const [currentStep, setCurrentStep] = useState(0);
 
   useEffect(() => {
-    if (params && params.id) {
+    // For debugging
+    console.log("Route matched:", matched);
+    console.log("Route params:", params);
+    
+    if (matched && params && params.id) {
+      console.log("Looking for order with ID:", params.id);
       const orderData = getOrderById(params.id);
+      console.log("Order data found:", orderData);
       
       if (orderData) {
         setOrder(orderData);
@@ -28,8 +34,11 @@ const OrderTracking = () => {
       setTimeout(() => {
         setLoading(false);
       }, 500);
+    } else {
+      // If no params, set loading to false
+      setLoading(false);
     }
-  }, [params]);
+  }, [matched, params]);
 
   if (loading) {
     return (

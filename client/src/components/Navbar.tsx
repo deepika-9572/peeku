@@ -40,44 +40,41 @@ const Navbar = () => {
         <div className="hidden lg:flex space-x-6 text-neutral-700 dark:text-gray-200">
           <Link
             href="/"
-            className={`hover:text-primary transition-colors font-medium ${
-              location === "/" ? "text-primary" : ""
+            className={`relative py-2 font-medium group ${
+              location === "/" ? "text-primary" : "text-neutral-700 dark:text-gray-200"
             }`}
           >
-            Home
+            <span>Home</span>
+            <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary transform origin-left transition-transform duration-300 ease-out ${location === "/" ? "scale-x-100" : "scale-x-0"} group-hover:scale-x-100`}></span>
           </Link>
           <Link
             href="/menu"
-            className={`hover:text-primary transition-colors font-medium ${
-              location === "/menu" ? "text-primary" : ""
+            className={`relative py-2 font-medium group ${
+              location === "/menu" ? "text-primary" : "text-neutral-700 dark:text-gray-200"
             }`}
           >
-            Menu
+            <span>Menu</span>
+            <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary transform origin-left transition-transform duration-300 ease-out ${location === "/menu" ? "scale-x-100" : "scale-x-0"} group-hover:scale-x-100`}></span>
           </Link>
           <Link
             href="/about"
-            className={`hover:text-primary transition-colors font-medium ${
-              location === "/about" ? "text-primary" : ""
+            className={`relative py-2 font-medium group ${
+              location === "/about" ? "text-primary" : "text-neutral-700 dark:text-gray-200"
             }`}
           >
-            About Us
+            <span>About Us</span>
+            <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary transform origin-left transition-transform duration-300 ease-out ${location === "/about" ? "scale-x-100" : "scale-x-0"} group-hover:scale-x-100`}></span>
           </Link>
           <Link
             href="/contact"
-            className={`hover:text-primary transition-colors font-medium ${
-              location === "/contact" ? "text-primary" : ""
+            className={`relative py-2 font-medium group ${
+              location === "/contact" ? "text-primary" : "text-neutral-700 dark:text-gray-200"
             }`}
           >
-            Contact
+            <span>Contact</span>
+            <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-primary transform origin-left transition-transform duration-300 ease-out ${location === "/contact" ? "scale-x-100" : "scale-x-0"} group-hover:scale-x-100`}></span>
           </Link>
-          <Link
-            href="/admin"
-            className={`hover:text-primary transition-colors font-medium ${
-              location.startsWith("/admin") ? "text-primary" : ""
-            }`}
-          >
-            Admin
-          </Link>
+
         </div>
 
         {/* User Actions */}

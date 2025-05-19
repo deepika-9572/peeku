@@ -1,5 +1,8 @@
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
+import { FaBirthdayCake, FaCookieBite, FaBreadSlice, FaIceCream, FaChild } from "react-icons/fa";
+import { GiCupcake, GiDonut, GiCroissant, GiSlicedBread } from "react-icons/gi";
+import { PiBreadFill } from "react-icons/pi";
 
 const Hero = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -41,6 +44,54 @@ const Hero = () => {
         ))}
       </div>
 
+      {/* Floating Bakery Icons */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Teddy Bear Icon (using Child icon as substitute) */}
+        <div className="absolute top-[15%] left-[10%] text-white text-4xl animate-bounce-slow opacity-80">
+          <FaChild className="transform rotate-12 drop-shadow-lg" />
+        </div>
+        
+        {/* Cake Icon */}
+        <div className="absolute top-[25%] right-[15%] text-white text-3xl animate-float-delayed opacity-80">
+          <FaBirthdayCake className="transform -rotate-12 drop-shadow-lg" />
+        </div>
+        
+        {/* Cupcake Icon */}
+        <div className="absolute bottom-[30%] left-[20%] text-white text-3xl animate-pulse-slow opacity-80">
+          <GiCupcake className="transform rotate-6 drop-shadow-lg" />
+        </div>
+        
+        {/* Cookie Icon */}
+        <div className="absolute top-[40%] left-[30%] text-white text-2xl animate-spin-slow opacity-70">
+          <FaCookieBite className="drop-shadow-lg" />
+        </div>
+        
+        {/* Donut Icon */}
+        <div className="absolute top-[60%] right-[25%] text-white text-3xl animate-float opacity-80">
+          <GiDonut className="transform rotate-45 drop-shadow-lg" />
+        </div>
+        
+        {/* Bread Icon */}
+        <div className="absolute bottom-[20%] right-[10%] text-white text-2xl animate-bounce-delayed opacity-70">
+          <FaBreadSlice className="transform -rotate-12 drop-shadow-lg" />
+        </div>
+        
+        {/* Croissant Icon */}
+        <div className="absolute top-[10%] right-[35%] text-white text-2xl animate-pulse-delayed opacity-70">
+          <GiCroissant className="transform rotate-12 drop-shadow-lg" />
+        </div>
+        
+        {/* Ice Cream Icon */}
+        <div className="absolute bottom-[35%] right-[30%] text-white text-2xl animate-float-slow opacity-70">
+          <FaIceCream className="transform -rotate-6 drop-shadow-lg" />
+        </div>
+        
+        {/* Bread Loaf Icon */}
+        <div className="absolute bottom-[15%] left-[35%] text-white text-3xl animate-bounce-slow opacity-80">
+          <PiBreadFill className="transform rotate-6 drop-shadow-lg" />
+        </div>
+      </div>
+      
       {/* Content */}
       <div className="container mx-auto px-4 z-10 animate-fadeIn">
         <h1 className="font-script text-5xl md:text-7xl mb-2 text-shadow-lg animate-slideUp">Peeku's Bakery</h1>
@@ -75,3 +126,26 @@ const Hero = () => {
 };
 
 export default Hero;
+
+// Add these styles to your tailwind.config.js or create a new CSS file
+// and import it in your main CSS file
+/*
+extend: {
+  animation: {
+    'float': 'float 6s ease-in-out infinite',
+    'float-slow': 'float 8s ease-in-out infinite',
+    'float-delayed': 'float 6s ease-in-out 2s infinite',
+    'bounce-slow': 'bounce 3s ease-in-out infinite',
+    'bounce-delayed': 'bounce 3s ease-in-out 1s infinite',
+    'spin-slow': 'spin 8s linear infinite',
+    'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+    'pulse-delayed': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) 1.5s infinite',
+  },
+  keyframes: {
+    float: {
+      '0%, 100%': { transform: 'translateY(0)' },
+      '50%': { transform: 'translateY(-20px)' },
+    },
+  },
+}
+*/

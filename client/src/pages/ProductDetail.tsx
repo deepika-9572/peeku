@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useRoute, Link } from "wouter";
 import { formatCurrency } from "@/lib/utils";
 import { ProductType, getProductById, getRelatedProducts } from "@/data/mockData";
@@ -39,11 +39,12 @@ const ProductDetail = () => {
     }, 500);
   }, [params]);
 
-  const showProductDetails = (product: ProductType) => {
+  // Memoize this function to prevent it from causing re-renders
+  const showProductDetails = useCallback((productToShow: ProductType) => {
     if (window.showProductModal) {
-      window.showProductModal(product);
+      window.showProductModal(productToShow);
     }
-  };
+  }, []);
 
   const handleAddToCart = () => {
     if (!product) return;

@@ -115,17 +115,17 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-3xl text-center mb-8">What Our Customers Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-neutral-200 rounded-full overflow-hidden mr-4">
+                <div className="w-12 h-12 bg-neutral-200 rounded-full overflow-hidden mr-4 border-2 border-primary border-opacity-20">
                   <img 
                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" 
-                    alt="Customer" 
+                    alt="Deepika" 
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
-                  <h4 className="font-medium">Priya Sharma</h4>
+                  <h4 className="font-medium">Deepika</h4>
                   <div className="text-accent text-sm">
                     <i className="fas fa-star"></i>
                     <i className="fas fa-star"></i>
@@ -136,21 +136,21 @@ const Home = () => {
                 </div>
               </div>
               <p className="text-neutral-700">
-                "The chocolate cake is to die for! Every bite is pure bliss. Peeku's Bakery has become my go-to place for all celebrations."
+                "The chocolate cake is absolutely divine! Every bite is pure bliss. Peeku's Bakery has become my go-to place for all celebrations. The quality and taste are consistently excellent."
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-neutral-200 rounded-full overflow-hidden mr-4">
+                <div className="w-12 h-12 bg-neutral-200 rounded-full overflow-hidden mr-4 border-2 border-primary border-opacity-20">
                   <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" 
-                    alt="Customer" 
+                    src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" 
+                    alt="Darshan" 
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
-                  <h4 className="font-medium">Rahul Patel</h4>
+                  <h4 className="font-medium">Darshan</h4>
                   <div className="text-accent text-sm">
                     <i className="fas fa-star"></i>
                     <i className="fas fa-star"></i>
@@ -161,21 +161,21 @@ const Home = () => {
                 </div>
               </div>
               <p className="text-neutral-700">
-                "Their sourdough bread is exceptional! Perfect crust and amazing flavor. I've tried many bakeries but none compare to Peeku's artisanal bread."
+                "Their sourdough bread is exceptional! Perfect crust and amazing flavor. I've tried many bakeries but none compare to Peeku's artisanal bread. The texture and taste are simply outstanding."
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm">
+            <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-neutral-200 rounded-full overflow-hidden mr-4">
+                <div className="w-12 h-12 bg-neutral-200 rounded-full overflow-hidden mr-4 border-2 border-primary border-opacity-20">
                   <img 
-                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" 
-                    alt="Customer" 
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100" 
+                    alt="Nitin" 
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
-                  <h4 className="font-medium">Sneha Gupta</h4>
+                  <h4 className="font-medium">Nitin</h4>
                   <div className="text-accent text-sm">
                     <i className="fas fa-star"></i>
                     <i className="fas fa-star"></i>
@@ -186,7 +186,7 @@ const Home = () => {
                 </div>
               </div>
               <p className="text-neutral-700">
-                "The pastries are always fresh and delicious. The attention to detail is impressive and the staff is always friendly. A hidden gem in our neighborhood!"
+                "The pastries are always fresh and delicious. The attention to detail is impressive and the staff is always friendly. Their croissants are the best I've ever had - a hidden gem in our neighborhood!"
               </p>
             </div>
           </div>

@@ -614,6 +614,62 @@ const products: ProductType[] = [
 // Mock orders data
 const orders: OrderType[] = [
   {
+    id: "DB26617",
+    userId: 1,
+    items: [
+      {
+        id: 10,
+        productId: 4,
+        name: "French Macarons Assortment",
+        price: 349,
+        quantity: 1,
+        image: "https://images.unsplash.com/photo-1569864358642-9d1684040f43?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=350",
+        size: "Box of 12"
+      },
+      {
+        id: 11,
+        productId: 2,
+        name: "Butter Croissants",
+        price: 129,
+        quantity: 2,
+        image: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=350",
+        size: "Pack of 2"
+      }
+    ],
+    totalAmount: 607,
+    date: "2023-10-18T09:15:00",
+    status: "out_for_delivery",
+    deliveryAddress: "456 Park Avenue, Delhi 110001",
+    paymentMethod: "UPI",
+    estimatedDelivery: "Oct 18, 2023, 10:30 AM - 11:30 AM",
+    trackingSteps: [
+      {
+        step: "Order Placed",
+        completed: true,
+        time: "Oct 18, 9:15 AM"
+      },
+      {
+        step: "Order Confirmed",
+        completed: true,
+        time: "Oct 18, 9:20 AM"
+      },
+      {
+        step: "Preparation Started",
+        completed: true,
+        time: "Oct 18, 9:35 AM"
+      },
+      {
+        step: "Out for Delivery",
+        completed: true,
+        time: "Oct 18, 10:15 AM"
+      },
+      {
+        step: "Delivered",
+        completed: false
+      }
+    ]
+  },
+  {
     id: "DB12345",
     userId: 1,
     items: [

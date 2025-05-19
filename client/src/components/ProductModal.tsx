@@ -48,25 +48,13 @@ const ProductModal = () => {
     // Close the product modal
     closeModal();
     
-    // Show the order processing modal
-    const processingModal = document.getElementById("order-processing-modal");
-    if (processingModal) {
-      processingModal.classList.remove("hidden");
-      
-      const processingState = document.getElementById("processing-state");
-      const successState = document.getElementById("success-state");
-      
-      if (processingState && successState) {
-        processingState.classList.remove("hidden");
-        successState.classList.add("hidden");
-        
-        // Simulate processing time
-        setTimeout(() => {
-          processingState.classList.add("hidden");
-          successState.classList.remove("hidden");
-        }, 3000);
+    // Use setTimeout to ensure the modal is closed before showing the order processing modal
+    setTimeout(() => {
+      // Show the order processing modal using the global function
+      if (window.showOrderProcessingModal) {
+        window.showOrderProcessingModal();
       }
-    }
+    }, 100);
   };
 
   const handleAddToCart = () => {

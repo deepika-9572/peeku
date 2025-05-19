@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { getOrdersByUserId, OrderType } from "@/data/mockData";
 import { formatDate } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
-import { FaUser, FaClipboardList, FaLock, FaTruck } from "react-icons/fa";
+import { FaUser, FaClipboardList, FaLock, FaTruck, FaHistory, FaHome, FaCreditCard } from "react-icons/fa";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("profile");
@@ -59,41 +59,78 @@ const Profile = () => {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Sidebar */}
         <div className="lg:col-span-1">
-          <Card>
-            <CardHeader>
+          <Card className="sticky top-24">
+            <CardHeader className="pb-4">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center">
-                  <span className="text-xl font-medium">{name.charAt(0)}</span>
+                <div className="w-16 h-16 bg-primary bg-opacity-10 text-primary rounded-full flex items-center justify-center border-2 border-primary">
+                  <span className="text-2xl font-medium">{name.charAt(0)}</span>
                 </div>
                 <div>
-                  <CardTitle>{name}</CardTitle>
+                  <CardTitle className="text-xl">{name}</CardTitle>
                   <CardDescription className="text-sm">Customer</CardDescription>
                 </div>
               </div>
             </CardHeader>
             <CardContent>
+              <div className="text-sm text-gray-500 mb-3 px-1">ACCOUNT</div>
               <nav className="space-y-2">
                 <Button 
-                  variant={activeTab === "profile" ? "default" : "outline"} 
+                  variant={activeTab === "profile" ? "default" : "ghost"} 
                   onClick={() => setActiveTab("profile")}
-                  className="w-full justify-start"
+                  className="w-full justify-start font-medium"
+                  size="sm"
                 >
-                  <FaUser className="mr-2" /> Profile
+                  <FaUser className="mr-2 text-primary" /> Profile Information
                 </Button>
                 <Button 
-                  variant={activeTab === "orders" ? "default" : "outline"} 
-                  onClick={() => setActiveTab("orders")}
-                  className="w-full justify-start"
-                >
-                  <FaClipboardList className="mr-2" /> Recent Orders
-                </Button>
-                <Button 
-                  variant={activeTab === "password" ? "default" : "outline"} 
+                  variant={activeTab === "password" ? "default" : "ghost"} 
                   onClick={() => setActiveTab("password")}
-                  className="w-full justify-start"
+                  className="w-full justify-start font-medium"
+                  size="sm"
                 >
-                  <FaLock className="mr-2" /> Change Password
+                  <FaLock className="mr-2 text-primary" /> Change Password
                 </Button>
+                
+                <div className="text-sm text-gray-500 mt-6 mb-3 px-1">ORDERS</div>
+                
+                <Button 
+                  variant={activeTab === "orders" ? "default" : "ghost"} 
+                  onClick={() => setActiveTab("orders")}
+                  className="w-full justify-start font-medium"
+                  size="sm"
+                >
+                  <FaClipboardList className="mr-2 text-primary" /> Recent Orders
+                </Button>
+                <Link href="/order-history" className="block">
+                  <Button 
+                    variant="ghost"
+                    className="w-full justify-start font-medium"
+                    size="sm"
+                  >
+                    <FaHistory className="mr-2 text-primary" /> Order History
+                  </Button>
+                </Link>
+                
+                <div className="text-sm text-gray-500 mt-6 mb-3 px-1">QUICK LINKS</div>
+                
+                <Link href="/" className="block">
+                  <Button 
+                    variant="ghost"
+                    className="w-full justify-start font-medium"
+                    size="sm"
+                  >
+                    <FaHome className="mr-2 text-primary" /> Home
+                  </Button>
+                </Link>
+                <Link href="/menu" className="block">
+                  <Button 
+                    variant="ghost"
+                    className="w-full justify-start font-medium"
+                    size="sm"
+                  >
+                    <FaCreditCard className="mr-2 text-primary" /> Shop Now
+                  </Button>
+                </Link>
               </nav>
             </CardContent>
           </Card>
@@ -230,10 +267,13 @@ const Profile = () => {
                         </div>
                       ))}
                       
-                      <div className="text-center">
+                      <div className="text-center mt-6 pt-4 border-t border-gray-100">
                         <Link href="/order-history">
-                          <Button variant="outline">View All Orders</Button>
+                          <Button className="w-full">
+                            <FaHistory className="mr-2" /> View All Orders
+                          </Button>
                         </Link>
+                        <p className="text-sm text-gray-500 mt-2">See your complete order history and filter by status</p>
                       </div>
                     </div>
                   )}
