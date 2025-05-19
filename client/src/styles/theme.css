@@ -1,0 +1,20 @@
+:root {
+  --primary: 25 95% 53%;
+  --primary-foreground: 0 0% 100%;
+  
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+}
+
+.dark {
+  --primary: 25 95% 53%;
+  --primary-foreground: 0 0% 100%;
+  
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+}
+
+/* Add transition to all elements for smooth theme switching */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
